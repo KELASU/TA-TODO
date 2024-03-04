@@ -22,9 +22,7 @@ export function TodoItem({ completed, id, title, editId, toggleEditId, editTodo,
           }>
             OK
           </button>
-          </>
-          :
-          <input
+          </>:<input
           type="checkbox"
           checked={completed}
           onChange={(e) => {
@@ -37,14 +35,14 @@ export function TodoItem({ completed, id, title, editId, toggleEditId, editTodo,
         />
 
         }
-        <div className="font-mono text-lg title">{title}</div>
+        <div className="font-serif text-lg title">{title}</div>
         { editId !== id &&
-        <button className="btn btn-danger hover:animate-pulse" onClick={() => deleteTodo(id)}>
+        <button className="font-serif btn btn-danger hover:animate-pulse" onClick={() => deleteTodo(id)}>
           Delete
         </button>
         }
         { editId !== id &&
-        <button className="btn hover:animate-pulse" onClick={() => toggleEditId(id)}>
+        <button className="font-serif btn hover:animate-pulse" onClick={() => toggleEditId(id)}>
           Edit
         </button>
         }

@@ -16,9 +16,9 @@ export function TodoForm({ addTodo }) {
     <div>
       <form className="new-item-form">
         <div className="form-row">
-          <label className="font-mono text-center text-2xl" htmlFor="item">New item</label>
+          <label className="font-serif text-center text-2xl" htmlFor="item">Add To ToDO</label>
           <input
-          className="font-mono"
+            className="font-serif"
             placeholder="Enter to-do name"
             type="text"
             id="item"
@@ -26,7 +26,7 @@ export function TodoForm({ addTodo }) {
             onChange={(e) => setNewItem(e.target.value)}
           />
         </div>
-        <button className={"font-mono btn hover:animate-pulse "} onClick={handleSubmit}>
+        <button className={"font-serif btn hover:animate-pulse "} onClick={handleSubmit}>
           Add
         </button>
       </form>

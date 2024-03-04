@@ -2,10 +2,10 @@ import "../App.css";
 import { useState } from "react";
 import { TodoForm } from "../components/TodoForm";
 import { TodoList } from "../components/TodoList";
-'import { EditTodoForm } from "../components/EditTodoForm";'
+
 function Todo() {
   const [todos, setTodos] = useState([]);
-  const [isactive, setIsactive] = useState(false);
+  const [showUnchecked, setShowUnchecked] = useState(false);
 
   function addTodo(title) {
     setTodos((currentTodos) => {
@@ -47,11 +47,16 @@ function Todo() {
     })
   }
 
+  function toggleUnchecked() {
+    setShowUnchecked(!showUnchecked);
+    return;
+  }
+
   return (
     <>
-      <div className="h-screen p-5 bg-gradient-to-br from-gray-900 to-slate-800">
+      <div className="w-dvh h-fit p-2 bg-green-950 ">
         <TodoForm addTodo={addTodo}/>
-        <TodoList todos={todos} setTodos={setTodos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo}/>
+        <TodoList todos={todos} showUnchecked={showUnchecked} toggleUnchecked={toggleUnchecked} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo}/>
       </div>
     </>
   );
