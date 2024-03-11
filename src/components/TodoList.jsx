@@ -17,7 +17,7 @@ export function TodoList({ todos, editTodo, showUnchecked, toggleUnchecked, togg
   }
 
   return (
-    <div className="h-3/5 px-10 py-2 my-5 bg-black">
+    <div className="h-3/5 px-10 py-2 my-5 bg-stone-950">
       <div className="flex items-center justify-between">
         <h1 className="header font-serif">Todo List</h1>
         <button className={"btn font-serif text-xs text-cyan-500 " + (showUnchecked && "btn-danger animate-spin")} onClick={() => toggleUnchecked()}>Only show unchecked</button>

@@ -8,7 +8,6 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
     const [user] = useAuthState(auth); // Listen to authentication state changes
-
     const handleLogin = async () => {
         try {
             await loginWithEmailAndPassword(email, password); // Sign in with email and password

@@ -17,12 +17,12 @@ function Todo({user, setAvatarImg}) {
   const [showUnchecked, setShowUnchecked] = useState(false);
   const [username, setUsername] = useState("");
 
-  const docRef = doc(db, "users", user.uid)
+  useEffect(() => {
+    const docRef = doc(db, "users", user.uid);
     getDoc(docRef).then((docSnap) => {
-      setUsername(docSnap.data().username)
-    })
-  
-
+      setUsername(docSnap.data().username);
+    });
+  }, [user]);
 
   useEffect(() => {
     const q = query(collection(db, "users", user.uid, "tasks"), orderBy("created", "desc"));
@@ -30,11 +30,11 @@ function Todo({user, setAvatarImg}) {
       setTodos(querySnapshot.docs.map(doc => ({
         id: doc.id, 
         data: doc.data()})))
-    })
+    });
     
     if(!user) setAvatarImg(user.photoURL);
 
-  })
+  }, [user]);
 
   async function toggleTodo(id, completed) {
     const todoDocRef = doc(db, "users", user.uid, "tasks", id);
@@ -97,13 +97,13 @@ function Todo({user, setAvatarImg}) {
       <div className="flex flex-col h-full">
         <div className="flex items-center h-20">
           <img id="avatar" src={avatarRender()} alt="Avatar"/>
-          <h1 className="font-mono mr-3">Hello {username}!</h1>
+          <h1 className="font-serif mr-3">Hello {username}!</h1>
           {user != null ? 
-          <button className="btn mr-7 font-mono" onClick={logout}>Log out</button>
+          <button className="btn mr-2 font-serif" onClick={logout}>Log out</button>
           :
           
             <Link to="/auth">
-              <button className="btn mr-7 font-mono">Sign in</button>
+              <button className="btn mr-2 font-serif">Sign in</button>
             </Link>
           
           }
@@ -114,7 +114,7 @@ function Todo({user, setAvatarImg}) {
           </div>
           
         </div>
-        <div className="w-dvh h-fit p-2 bg-green-950">
+        <div className="w-dvh h-dvh p-2 bg-indigo-800">
           <TodoForm user={user}/>
           <TodoList todos={todos} showUnchecked={showUnchecked} toggleUnchecked={toggleUnchecked} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo}/>
         </div>
