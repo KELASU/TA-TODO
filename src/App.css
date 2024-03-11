@@ -17,6 +17,10 @@ body {
 }
 
 html, body{
+  height: 100vh;
+}
+
+#root {
   height: 100%;
 }
 
@@ -42,6 +46,11 @@ html, body{
   outline: none;
 }
 
+#files {
+  visibility: hidden;
+  display: none;
+}
+
 .btn:hover,
 .btn:focus-visible {
   background: hsl(200, 100%, 50%, 0.2);
@@ -63,7 +72,7 @@ html, body{
 
 .new-item-form input, .textInput{
   outline: none;
-  border: 1px solid hsl(200, 100%, 40%);
+  /* border: 1px solid hsl(200, 100%, 40%); */
   background: hsl(200, 100%, 30%);
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
@@ -114,6 +123,15 @@ html, body{
   outline: 1px solid hsl(200, 100%, 50%);
 }
 
+#avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 1em;
+  margin-left: 2em;
+
+}
+
 .list li input:not(.textInput) {
   outline: none;
   width: 0;
@@ -125,17 +143,17 @@ html, body{
 
 .title{
   text-wrap: wrap;
-  width: 9rem;
+  min-width: 9rem;
   overflow: hidden;
 }
 
 .textInput {
   padding: 0.5em;
   outline: none;
-  width: 4em;
-  height: 1.4em;
+  width: 10em;
+  height: 2em;
   appearance: none;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 .list li:has(input:not(.textInput)) label::before {
@@ -164,4 +182,12 @@ html, body{
 
 .list li:has(input:checked) label:hover::before {
   background: hsl(200, 100%, 30%);
+}
+.login .textInput {
+  padding: 0.5em;
+  outline: none;
+  width: 15em;
+  height: 2em;
+  appearance: none;
+  /* pointer-events: none; */
 }
