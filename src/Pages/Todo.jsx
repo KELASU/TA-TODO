@@ -97,13 +97,13 @@ function Todo({user, setAvatarImg}) {
       <div className="flex flex-col h-full">
         <div className="flex items-center h-20">
           <img id="avatar" src={avatarRender()} alt="Avatar"/>
-          <h1 className="font-serif mr-3">Hello {username}!</h1>
+          <h1 className="font-serif mr-1">Hello {username}!</h1>
           {user != null ? 
-          <button className="btn mr-2 font-serif" onClick={logout}>Log out</button>
+          <button className="btn mr-1 font-serif" onClick={logout}>Log out</button>
           :
           
             <Link to="/auth">
-              <button className="btn mr-2 font-serif">Sign in</button>
+              <button className="btn mr-1 font-serif">Sign in</button>
             </Link>
           
           }
